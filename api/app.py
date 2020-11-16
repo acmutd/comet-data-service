@@ -12,59 +12,64 @@ with open("data/new.json", 'r') as f:
     data = json.loads(f.read())
 with open("data/major_requirements_processed.txt", 'r') as f:
     degreePlan = json.loads(f.read())
+with open("data/ecs_computer-science.json", 'r') as f:
+    ecs_cs = json.loads(f.read())
 
 @app.route('/')
 def hello():
     return "Hello World!"
 
-
-@app.route('/degreeAll')
-def degreeAll():
-    return jsonify(degreePlan)
-
-
-@app.route('/degree')
+@app.route('/api/plan/ecs/computer-science')
 def degree():
-    school = request.args.get('school')
-    major = request.args.get('major')
-    try:
-        result = jsonify(degreePlan[school][major])
-    except:
-        result = {"message": "school/major not found"}
-    return result
+    return jsonify(ecs_cs)
+
+# @app.route('/degreeAll')
+# def degreeAll():
+#     return jsonify(degreePlan)
 
 
-@app.route('/core')
-def core():
-    school = request.args.get('school')
-    major = request.args.get('major')
-    try:
-        result = jsonify(degreePlan[school][major]["Core"])
-    except:
-        result = {"message": "school/major not found"}
-    return result
+# @app.route('/degree')
+# def degree():
+#     school = request.args.get('school')
+#     major = request.args.get('major')
+#     try:
+#         result = jsonify(degreePlan[school][major])
+#     except:
+#         result = {"message": "school/major not found"}
+#     return result
 
 
-@app.route('/major')
-def major():
-    school = request.args.get('school')
-    major = request.args.get('major')
-    try:
-        result = jsonify(degreePlan[school][major]["Major"])
-    except:
-        result = {"message": "school/major not found"}
-    return result
+# @app.route('/core')
+# def core():
+#     school = request.args.get('school')
+#     major = request.args.get('major')
+#     try:
+#         result = jsonify(degreePlan[school][major]["Core"])
+#     except:
+#         result = {"message": "school/major not found"}
+#     return result
 
 
-@app.route('/elective')
-def elective():
-    school = request.args.get('school')
-    major = request.args.get('major')
-    try:
-        result = jsonify(degreePlan[school][major]["Elective"])
-    except:
-        result = {"message": "school/major not found"}
-    return result
+# @app.route('/major')
+# def major():
+#     school = request.args.get('school')
+#     major = request.args.get('major')
+#     try:
+#         result = jsonify(degreePlan[school][major]["Major"])
+#     except:
+#         result = {"message": "school/major not found"}
+#     return result
+
+
+# @app.route('/elective')
+# def elective():
+#     school = request.args.get('school')
+#     major = request.args.get('major')
+#     try:
+#         result = jsonify(degreePlan[school][major]["Elective"])
+#     except:
+#         result = {"message": "school/major not found"}
+#     return result
 
 
 @app.route("/prerequisite")
