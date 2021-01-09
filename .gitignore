@@ -1,2 +1,4 @@
 env/*
 scraper/secret.json
+node_modules
+.env
