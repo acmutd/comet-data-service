@@ -61,7 +61,7 @@ app.listen(port, function () {
 });
 
 app.get('/console', authCheck, consoleView);
-app.get('/aconsole', authCheck, announcementView);
+app.get('/anncmnt', authCheck, announcementView);
 app.get('/logout', logout);
 app.post('/auth', auth)
 
