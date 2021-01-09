@@ -22,11 +22,11 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/console">Courses</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/aconsole">Announcements<span class="sr-only"></span></a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/aconsole">Announcements</a>
                 </li>
             </ul>
             <button class="btn btn-primary" type="button" onclick="logout()">Sign Out</button>
@@ -39,22 +39,19 @@
         <p id="hidden-id"></p>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="add-button">
-            Add Course
+            Add Announcement
         </button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal" id="edit-button">
-            Edit Course
-        </button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#graphModal" id="graph-button">
-            Test Prereq
+            Edit Announcement
         </button>
 
         <hr />
         <form>
             <div class="form-group">
-                <label for="search">Course Name</label>
+                <label for="search">Announcement Name</label>
                 <input type="text" class="form-control" id="search" aria-describedby="searchHelp"
-                    placeholder="Enter course name">
-                <small id="searchHelp" class="form-text text-muted">Ex. CS 3341</small>
+                    placeholder="Enter announcement name">
+                <small id="searchHelp" class="form-text text-muted">Ex. whiteboard update</small>
             </div>
             <button id="search-name" class="btn btn-primary">Submit</button>
         </form>
@@ -65,7 +62,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add a New Course</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add a New Announcement</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -89,7 +86,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Edit Course</h5>
+                        <h5 class="modal-title" id="editModalLabel">Edit Announcement</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -103,28 +100,6 @@
                     <div class="modal-footer">
                         <button id="edit-submit" type="submit" data-dismiss="modal"
                             class="btn btn-primary">Edit</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="graphModal" tabindex="-1" role="dialog" aria-labelledby="graphModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="graphModalLabel">Prerequisite Graph</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div id="mynetwork"></div>
-                        <p id="selection"></p>
-                        <div id="canvas"></div>
-                    </div>
-                    <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -177,7 +152,7 @@
     </script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     <script src="auth.js"></script>
-    <script src="index.js"></script>
+    <script src="announcements/index.js"></script>
 </body>
 
 </html>
