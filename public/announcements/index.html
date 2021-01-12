@@ -139,13 +139,13 @@
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "<%= FIREBASE_API_KEY %>",
+            apiKey: "<%= firebase_apiKey %>",
             authDomain: "cometplanning.firebaseapp.com",
             databaseURL: "https://cometplanning.firebaseio.com",
             projectId: "cometplanning",
             storageBucket: "cometplanning.appspot.com",
-            messagingSenderId: "<%= FIREBASE_MESSAGING_ID %>",
-            appId: "<%= FIREBASE_APP_ID %>"
+            messagingSenderId: "<%= firebase_messagingSenderId %>",
+            appId: "<%= firebase_appId %>"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);

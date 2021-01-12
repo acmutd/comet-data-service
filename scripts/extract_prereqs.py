@@ -1,3 +1,8 @@
+"""
+Used to extract prerequisite information from course description. 
+No longer used as the scraper has the functionality added.
+"""
+
 import re
 import copy
 import json

@@ -1,7 +1,8 @@
 const { course_getAll, course_deleteById, course_findById, course_findByName,
-    course_patch, course_post } = require('./courseInfo.js');
+    course_patch, course_post, course_init } = require('./courseInfo.js');
 const { consoleView, announcementView, logout, auth, authCheck } = require('./auth.js');
-const { announcement_getAll, announcement_deleteById, announcement_findById, announcement_findByName, announcement_patch, announcement_post } = require('./announcements.js');
+const { announcement_getAll, announcement_deleteById, announcement_findById, 
+    announcement_findByName, announcement_patch, announcement_post } = require('./announcements.js');
 
 // START server config
 const express = require('express');
@@ -19,13 +20,13 @@ const firebase = require('firebase/app');
 require('firebase/auth');
 
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
+    apiKey: process.env.firebase_apiKey,
     authDomain: 'cometplanning.firebaseapp.com',
     databaseURL: 'https://cometplanning.firebaseio.com',
     projectId: 'cometplanning',
     storageBucket: 'cometplanning.appspot.com',
-    messagingSenderId: process.env.FIREBASE_MESSAGING_ID,
-    appId: process.env.FIREBASE_APP_ID
+    messagingSenderId: process.env.firebase_messagingSenderId,
+    appId: process.env.firebase_appId
 };
 firebase.initializeApp(firebaseConfig);
 // END Firebase Auth

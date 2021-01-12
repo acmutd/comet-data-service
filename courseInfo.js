@@ -3,7 +3,8 @@ require('dotenv').config();
 const { _getAll, _post, _findExact, _findFuzzy, _deleteById, _patch } = require('./crudHandler.js');
 
 // DEBUG init database data
-// const course_info = require('./data/scheduler_prereq.json');
+// const course_info = require('./data/21s_courses.json');
+const debug = false;
 
 async function course_getAll(req, res) {
   const result = await _getAll(req.app.get('db').collection('courses'));
@@ -59,14 +60,15 @@ async function course_patch(req, res) {
 }
 
 async function course_init(req, res) {
-  const batch = db.batch()
+  if(!debug) res.json({ 'message': 'action not allowed.'});
+  let batch = req.app.get('db').batch();
   course_info.forEach((course, index) => {
-    const ref = req.app.get('db').collection('courses').doc(course['course']);
+    let ref = req.app.get('db').collection('courses').doc(course['course']);
     batch.set(ref, course);
     // Firestore only allows 500 docs every batch write
     if (index % 400 == 0) {
       batch.commit()
-      batch = db.batch()
+      batch = req.app.get('db').batch()
       console.log(`batch ${index / 400} saved.`)
     }
   })
@@ -76,5 +78,5 @@ async function course_init(req, res) {
 
 module.exports = {
   course_getAll, course_deleteById, course_findById, course_findByName, 
-  course_patch, course_post
+  course_patch, course_post, course_init
 };
