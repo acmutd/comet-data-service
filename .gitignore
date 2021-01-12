@@ -7,3 +7,4 @@ firestore_key.json
 .firebase/
 .firebaserc
 deploy_log.sh
+data/
