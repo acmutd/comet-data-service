@@ -9,6 +9,10 @@ const prereq_re = /\. (Prerequisite[s]* or Corequisite|Prerequisite|Corequisite)
 let id_counter = 0;
 let allCourses = [];
 
+// TODO: remove unnecessary props
+// const remove_props = ["subjectId", "subjectShort", "subjectLong", "number", "title",
+//                      "displayTitle", "titleLong", "hasRestrictions", "hasTopics", "topic"];
+
 function fetch_prereqs(course) {
     let matches = [...course["description"].matchAll(prereq_re)];
     for(let match of matches) {

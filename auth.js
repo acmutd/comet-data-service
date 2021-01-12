@@ -17,7 +17,7 @@ function authCheck(req, res, next) {
 const consoleView = (req, res) => {
     const user = req.app.get('firebase').auth().currentUser;
     if (user) {
-        res.render('index', { ...process.env });
+        res.render('courses', { ...process.env });
     } else {
         res.status(401).send('User not authorized');
     }

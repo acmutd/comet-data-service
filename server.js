@@ -68,8 +68,8 @@ app.post('/auth', auth)
 
 app.get('/courses', authCheck, course_getAll);
 app.post('/courses', authCheck, course_post);
-app.get('/courses/id/:id', authCheck, course_findById);
-app.get('/courses/name/:name', authCheck, course_findByName);
+app.get('/courses/id/:id', course_findById);
+app.get('/courses/name/:name', course_findByName);
 app.delete('/courses/:id', authCheck, course_deleteById);
 app.put('/courses/:id', authCheck, course_patch);
 
